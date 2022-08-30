@@ -1,11 +1,12 @@
-import compression from "compression";
-import cors from "cors";
-import express, { json, urlencoded } from "express";
-import helmet from "helmet";
-import upload from "./middleware/multer";
-import cloudinary from "./utils/cloudinary.config";
-import { env } from "./utils/env";
+const compression = require("compression");
+const cors = require("cors");
+const express = require("express");
+const helmet = require("helmet");
+const upload = require("./middleware/multer");
+const cloudinary = require("./utils/cloudinary.config");
+const { env } = require("./utils/env");
 
+const { json, urlencoded } = express;
 const app = express();
 const PORT = env.app.port;
 
@@ -61,4 +62,4 @@ app.post("/upload", upload.single("profilePhotoFile"), async (req, res) => {
 
 app.listen(PORT, () => console.log(`App listening at port ${PORT}...`));
 
-export default () => app;
+module.exports = () => app;

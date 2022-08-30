@@ -1,9 +1,9 @@
-import dotenv from "dotenv";
+const dotenv = require("dotenv");
 dotenv.config();
 
-import { getOsEnv } from "../lib";
+const { getOsEnv } = require("../lib");
 
-export const env = {
+const env = {
     app: {
         port: getOsEnv("PORT") || 8080,
     },
@@ -12,4 +12,8 @@ export const env = {
         api_key: getOsEnv("API_KEY"),
         api_secret: getOsEnv("API_SECRET"),
     },
+};
+
+module.exports = {
+    env,
 };
