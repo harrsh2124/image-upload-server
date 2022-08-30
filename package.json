@@ -11,7 +11,7 @@
         "format:write": "prettier --write \"**/*.+(js|json)\"",
         "lint:check": "eslint .",
         "lint:fix": "eslint --fix .",
-        "build": "rimraf dist && babel app --out-dir dist  --copy-files",
+        "build": "node_modules/.bin/rimraf dist && babel app --out-dir dist  --copy-files",
         "start": "node dist/server.js",
         "start:dev": "nodemon --exec babel-node app/server.js"
     },
